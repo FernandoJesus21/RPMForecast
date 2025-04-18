@@ -34,9 +34,9 @@ Existen parámetros que pueden ser configurados por el usuario a través del arc
 7) MODELO_THETA: Habilita el uso de modelos THETA en el proceso.
 
 # Instrucciones
-Descomprimir la carpeta del proyecto en el lugar deseado, a continuación, modificar el parámetro DIRECTORIO_TRABAJO del archivo kettle.properties para que coincida con la ubicación de la subcarpeta 'ARCHIVOS'.
-
-Crear una base de datos PostgreSQL nombrada 'tseries' con las tablas ‘indicadores’ y ‘previsiones’, como se establece en el script sql ‘tablas’ ubicado en /sql.
+- Descomprimir la carpeta del proyecto en el lugar deseado, a continuación, modificar el parámetro DIRECTORIO_TRABAJO del archivo kettle.properties para que coincida con la ubicación de la subcarpeta 'ARCHIVOS'.
+- Crear una base de datos PostgreSQL nombrada 'tseries' con las tablas ‘indicadores’ y ‘previsiones’, como se establece en el script sql ‘tablas’ ubicado en /sql.
+- Crear las carpetas ARCHIVOS/RPMForecast/log y ARCHIVOS/RPMForecast/salida
 
 Si se desea añadir archivos en formato .CSV para que sean cargados:
 1) Deben ser archivos separados por coma ','. 

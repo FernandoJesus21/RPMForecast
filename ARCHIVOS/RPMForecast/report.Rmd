@@ -1,0 +1,178 @@
+---
+title: "`r paste0('Resultados de bondad: Serie ', tsdf$serie[1])`"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: scroll
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+```
+
+
+Column {data-width=700}
+-----------------------------------------------------------------------
+
+### Modelo NAIVE - Pruebas y CV
+
+
+```{r}
+if(MODELO_NAIVE){
+  checkresiduals(res_naive[[4]], plot = F)
+  print("CV (RMSE):")
+  print(res_naive[[3]])
+  print("CV (MAE):")
+  print(res_naive[[2]])
+}else{
+  print("Sin modelo NAIVE configurado.")
+}
+
+```
+
+
+### Modelo ARIMA - Pruebas y CV
+
+
+```{r}
+if(MODELO_ARIMA){
+  checkresiduals(res_arima[[4]], plot = F)
+  print("CV (RMSE):")
+  print(res_arima[[3]])
+  print("CV (MAE):")
+  print(res_arima[[2]])
+}else{
+  print("Sin modelo ARIMA configurado.")
+}
+
+```
+
+### Modelo ARIMA (BOX-COX) - Pruebas y CV
+
+
+```{r}
+if(MODELO_ARIMA_BOX_COX){
+  checkresiduals(res_arima_box_cox[[4]], plot = F)
+  print("CV (RMSE):")
+  print(res_arima_box_cox[[3]])
+  print("CV (MAE):")
+  print(res_arima_box_cox[[2]])
+}else{
+  print("Sin modelo ARIMA (BOX-COX) configurado.")
+}
+
+```
+
+### Modelo ETS - Pruebas y CV
+
+
+```{r}
+if(MODELO_ETS){
+  checkresiduals(res_ets[[4]], plot = F)
+  print("CV (RMSE):")
+  print(res_arima[[3]])
+  print("CV (MAE):")
+  print(res_arima[[2]])
+}else{
+  print("Sin modelo ETS configurado.")
+}
+
+```
+
+### Modelo TBATS - Pruebas y CV
+
+
+```{r}
+if(MODELO_TBATS){
+  checkresiduals(res_tbats[[4]], plot = F)
+  print("CV (RMSE):")
+  print(res_tbats[[3]])
+  print("CV (MAE):")
+  print(res_tbats[[2]])
+}else{
+  print("Sin modelo TBATS configurado.")
+}
+
+```
+
+### Modelo THETA - Pruebas y CV
+
+```{r}
+if(MODELO_THETA){
+  checkresiduals(res_theta[[4]], plot = F)
+  print("CV (RMSE):")
+  print(res_theta[[3]])
+  print("CV (MAE):")
+  print(res_theta[[2]])
+}else{
+  print("Sin modelo THETA configurado.")
+}
+
+```
+
+
+Column {data-width=300}
+-----------------------------------------------------------------------
+
+### Modelo NAIVE - Residuos
+
+```{r}
+if(MODELO_NAIVE){
+  checkresiduals(res_naive[[4]], test = F)
+}
+
+```
+
+### Modelo ARIMA - Residuos
+
+```{r}
+if(MODELO_ARIMA){
+  checkresiduals(res_arima[[4]], test = F)
+}
+
+```
+
+### Modelo ARIMA (BOX-COX) - Residuos
+
+```{r}
+if(MODELO_ARIMA_BOX_COX){
+  checkresiduals(res_arima_box_cox[[4]], test = F)
+}
+
+```
+
+### Modelo ETS - Residuos
+
+```{r}
+if(MODELO_ETS){
+  checkresiduals(res_ets[[4]], test = F)
+}
+
+```
+
+### Modelo TBATS - Residuos
+
+```{r}
+
+if(MODELO_TBATS){
+  checkresiduals(res_tbats[[4]], test = F)
+}
+
+```
+
+### Modelo THETA - Residuos
+
+```{r}
+
+if(MODELO_THETA){
+  checkresiduals(res_theta[[4]], test = F)
+}
+
+```
+
+
+
+
+
+
+
